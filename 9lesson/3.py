@@ -14,7 +14,6 @@ with open('C:/Users/user/Desktop/Python/phyton/9lesson/t1.txt') as f1:
            for i in range (0, a-1):
                if stri[i] not in cifry:
                    break
-           
            tmp =stri + " "
            f0.write(tmp)
 print(f0)
