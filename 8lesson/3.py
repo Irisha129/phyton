@@ -8,7 +8,7 @@ def sravnenie(list1,list2):
          print("TRUE")
          break 
    
-# ввод элементов списка
+# ввод элементов списков
 s1 = []
 print("Вводим список1")
 for i in range(int(input('Количество элементов: '))):
