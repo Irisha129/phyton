@@ -1,21 +1,26 @@
 # 3. Написать функцию, которая будет открывать файл №1 находить в нем целые числа и записывать их в файл №2 
 
-cifry = {0,1,2,3,4,5,6,7,8,9}
-f0=open('C:/Users/user/Desktop/Python/phyton/9lesson/t2.txt', 'a')
-with open('C:/Users/user/Desktop/Python/phyton/9lesson/t1.txt') as f1:
-    print(f1)
-    s=[]
-    s = f1.readline()
-    print(s)
+# Способ 2
 
-    for stri in f1:
-        if len(stri)>0:
-           a = len(stri)
-           for i in range (0, a-1):
-               if stri[i] not in cifry:
-                   break
-           tmp =stri + " "
-           f0.write(tmp)
-print(f0)
-f0.close()
+import re
 
+with open('C:/Users/user/Desktop/Python/phyton/9lesson/t1.txt', "r") as f1:
+    with open('C:/Users/user/Desktop/Python/phyton/9lesson/t2.txt', "w") as f2:
+        for i in f1:
+            nums = re.findall(r"\b[1-9][0-9]*\b",i)
+            if nums:
+                f2.write(" ".join(nums) + "\n")
+        
+print(f2)
+# ____________________
+# Способ 1
+with open('C:/Users/user/Desktop/Python/phyton/9lesson/t1.txt', "r") as file1:
+    content = file1.read()
+    numbers = " "
+    for i in content:
+        if i.isdigit():
+            numbers += i
+        if numbers:
+            with open('C:/Users/user/Desktop/Python/phyton/9lesson/t2.txt', "w") as file2:
+                file2.write(numbers)
+                
